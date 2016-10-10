@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">  
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    </head>
+    <body>
+        <div>                
+            <div>
+                <a id="signinlink" href="javascript:history.back()" >돌아가기</a>
+            </div>  
+            <div>
+                 <div>    
+                    <div class="form-group">
+                        <br><br>
+                        <label>결제하기</label>
+                    </div>
+                    <form role="form" action="/paying_payApp" method="post" >
+                        <fieldset> 
+                            <div class="form-group">
+                                <br><br>
+                                <label class="control-label">충전금액선택</label><br>
+                                <select class="form-control" name="price" >
+                                    <option value=3000>3000원 -> 3000 Pills</option>
+                                    <option value=5000>5000원 -> 5150 Pills</option>
+                                    <option value=10000>10000원 -> 10500 Pills</option>
+                                    <option value=30000>30000원 -> 32100 Pills</option>
+                                    <option value=50000>50000원 -> 55000 Pills</option>
+                                </select>
+                                <br>
+                                <input class="form-control" type="number" name="phone" value="" required ="required" placeholder="휴대폰번호를 입력하세요">
+                            </div>
+                            <button type="submit">충전하기</button>
+                        </fieldset>
+                    </form>         
+                </div>    
+            </div>
+        </div>
+    </body>
+</html>
