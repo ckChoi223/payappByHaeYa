@@ -15,37 +15,31 @@ app.get('/pay', function(req,res){
 /*  payappFirst.html페이지에서 결제자가 결제요청 (과정2+과정3) */
 app.post('/paying_payApp', function(req,res){
     /* dataString에 api연동 parameters를 url형식으로 작성해야 함 */
-    /*
-    'cmd'	    	=> 'payrequest',			                                              // 결제요청, 필수
-	'userid'		=> 'payapp 판매자 아이디',	                                               // 판매자 아이디, 필수
-
-	'goodname'		=> '테스트상품',			                                                    // 상품명, 필수
-	'price'			=> '1000',					                                              // 결제요청 금액 (1,000원 이상), 필수
-	'recvphone'		=> '',						                                              // 수신자 휴대폰번호 (구매자), 필수
-	'memo'			=> '',		                                                              // 결제요청시 메모
-	'reqaddr'		=> '0',						                                              // 주소요청 여부
+	
+    /*  Parameters 
+        'cmd'	    		=> 'payrequest',			     // 결제요청, 필수
+	'userid'		=> 'payapp 판매자 아이디',	                  // 판매자 아이디, 필수
+	'goodname'		=> '테스트상품',			          // 상품명, 필수
+	'price'			=> '1000',				    // 결제요청 금액 (1,000원 이상), 필수
+	'recvphone'		=> '',					    // 수신자 휴대폰번호 (구매자), 필수
+	'memo'			=> '',		                            // 결제요청시 메모
+	'reqaddr'		=> '0',					    // 주소요청 여부
     
-	'feedbackurl'	=> ' 예) http://회사 웹사이트/paying_feedback'                                //feedbackurl
+	'feedbackurl'		=> ' 예) http://회사 웹사이트/paying_feedback'  //feedbackurl
     --> returnurl이 가장 중요합니다. payapp에서 결제정보를 post요청을 이용하여 보냅니다. 93번째줄에서 설정
     
-	'var1'			=> '',			                                                          // 임의변수1
+	'var1'			=> '',			                    // 임의변수1
+    	'var2'			=> '',				            // 임의변수2
+	// 임의변수는 고객사의 주문번호,상품코드 등 필요에 따라 자유롭게 이용이 가능합니다. feedbackurl로 값을 전달합니다.
 	
-    'var2'			=> '',				                                                      // 임의변수2
-												// 임의변수는 고객사의 주문번호,상품코드 등 필요에 따라 자유롭게 이용이 가능합니다. feedbackurl로 값을 전달합니다.
-	
-    'smsuse'		=> '',						                                              // 결제요청 SMS 발송여부 ('n'인 경우 SMS 발송 안함)
-	
-    'reqmode'		=> 'krw',					                                             // 요청구분 (krw:원화결제, usd:US달러 결제, unionpay:중국은련카드 결제)
-    
-	'vccode'		=> '',						                                             // 국제전화 국가번호 (currency가 usd일 경우 필수)
-	
-'returnurl'		=> '',	                                                                    // 결제완료 이동 URL (결제완료 후 매출전표 페이지에서 "확인" 버튼 클릭시 이동)
-    
-    'openpaytype'   => '',                                                                  // 결제수단 선택 (휴대전화:phone, 신용카드:card, 계좌이체:rbank, 가상계좌:vbank)
-                                                                                            // 판매자 사이트 "설정" 메뉴의 "결제 설정"이 우선 합니다.
-                                                                                            // 해외결제는 현재 신용카드 결제만 가능하며, 입력된 값은 무시됩니다.
-    
-'checkretry'    => 'y'                                                                      // feedbackurl의 응답이 'SUCCESS'가 아닌 경우 feedbackurl 호출을 재시도 합니다. (총 10회)
+    	'smsuse'		=> '',					    // 결제요청 SMS 발송여부 ('n'인 경우 SMS 발송 안함)
+    	'reqmode'		=> 'krw',				    // 요청구분 (krw:원화결제, usd:US달러 결제, unionpay:중국은련카드 결제)
+	'vccode'		=> '',				 	    // 국제전화 국가번호 (currency가 usd일 경우 필수)
+	'returnurl'		=> '',	                                    // 결제완료 이동 URL (결제완료 후 매출전표 페이지에서 "확인" 버튼 클릭시 이동)
+    	'openpaytype'   	=> '',                                      // 결제수단 선택 (휴대전화:phone, 신용카드:card, 계좌이체:rbank, 가상계좌:vbank)
+                                                                            // 판매자 사이트 "설정" 메뉴의 "결제 설정"이 우선 합니다.
+                                                                            // 해외결제는 현재 신용카드 결제만 가능하며, 입력된 값은 무시됩니다.
+	'checkretry'    	=> 'y'                                      // feedbackurl의 응답이 'SUCCESS'가 아닌 경우 feedbackurl 호출을 재시도 합니다. (총 10회)
 
     */
     
